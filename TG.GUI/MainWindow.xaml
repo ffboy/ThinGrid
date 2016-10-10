@@ -1,0 +1,49 @@
+﻿<Window x:Class="ThinGrid.MainWindow" x:Name="myWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:lmcl="clr-namespace:LinearModelControlLib;assembly=LinearModelControlLib"
+        Title="ThinGrid" Height="600" Width="1000" Icon="icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Orientation="Horizontal">
+            <Button x:Name="ButtonOpenFile" Click="ButtonOpenFile_Click" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Click to open a file">
+                <Image x:Name="ImageOpenFile" Width="20" Height="20" Source="data/open.png"></Image>
+            </Button>
+            <Button x:Name="ButtonSaveFile" Click="ButtonSaveFile_Click" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Click to save a file">
+                <Image x:Name="ImageSaveFile" Width="20" Height="20" Source="data/save.png"></Image>
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+            <Button x:Name="ButtonAddConstraint" Click="AddConstraint" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Adds an additional constraint">
+                <Image x:Name="ImageAddConstraint" Width="20" Height="20" Source="data/add_row.png"></Image>
+            </Button>
+            <Button x:Name="ButtonAddVariable" Click="AddVariable" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Adds an additional variable">
+                <Image x:Name="ImageAddVariable" Width="20" Height="20" Source="data/add_col.png"></Image>
+            </Button>
+            <Button x:Name="ButtonRemConstraint" Click="RemConstraint" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Removes the last constraint">
+                <Image x:Name="ImageRemConstraint" Width="20" Height="20" Source="data/rem_row.png"></Image>
+            </Button>
+            <Button x:Name="ButtonRemVariable" Click="RemVariable" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Removes the last variable">
+                <Image x:Name="ImageRemVariable" Width="20" Height="20" Source="data/rem_col.png"></Image>
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"/>
+            <Button x:Name="ButtonSolve" Click="ButtonSolve_Click" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Solves the problem">
+                <Image x:Name="ImageSolve" Width="20" Height="20" Source="data/calculate.png"></Image>
+            </Button>
+            <Button x:Name="ButtonStopSolve" Click="ButtonStopSolve_Click" Background="Transparent" BorderBrush="Transparent" Margin="2" ToolTip="Stops the solve process" Visibility="Collapsed">
+                <Image x:Name="ImageStopSolve" Width="20" Height="20" Source="data/cancel.png" Visibility="Collapsed"></Image>
+            </Button>
+        </WrapPanel>
+        <ScrollViewer Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <lmcl:LinearModelControl x:Name="myLinearModelControl">
+            </lmcl:LinearModelControl>
+        </ScrollViewer>
+        <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" ShowsPreview="true" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" Height="5"/>
+        <TextBox x:Name="OutputTextBox" Grid.Row="3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True" FontFamily="Consolas"/>
+    </Grid>
+</Window>
