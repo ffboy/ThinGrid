@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -77,6 +79,25 @@ namespace ThinGrid
         /// <param name="e">The routed event args.</param>
         private void ButtonStopSolve_Click(object sender, RoutedEventArgs e) { LogLine("Attempting to stop solver ..."); myLinearModelControl.StopSolve(); }
 
+        #region About box
+
+        /// <summary>
+        /// Shows a small about box.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The routed event.</param>
+        private void ButtonAbout_Click(object sender, RoutedEventArgs e)
+        {
+            if (Resources.Contains("WindowAbout"))
+            {
+                Window about = Resources["WindowAbout"] as Window;
+                about.Owner = this;
+                about.ShowDialog();
+            }
+        }
+
+        #endregion
+
         #region Helpers
 
         /// <summary>
@@ -125,6 +146,12 @@ namespace ThinGrid
                 ButtonStopSolve.IsEnabled = false; ButtonStopSolve.Visibility = Visibility.Collapsed; ImageStopSolve.Visibility = Visibility.Collapsed;
             });
         }
+        /// <summary>
+        /// Handles a clicked link.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The args.</param>
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e) { System.Diagnostics.Process.Start(e.Uri.ToString()); }
 
         #endregion
 

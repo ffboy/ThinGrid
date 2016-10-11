@@ -1,5 +1,5 @@
 # ThinGrid
-The Thingrid software is intended to be used as a very simple introduction to mathematical modeling. We hope that it is useful to support very basic understanding of Operational Research techniques.
+The ThinGrid software is intended to be used as a very basic tool to support the first steps into mathematical modeling. We hope that it is useful in providing a first impression of Operational Research techniques.
 Copyright (C) 2016 Marius Merschformann, Lin Xie
 
 This program is free software: you can redistribute it and/or modify
@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Used software:
+We would like to thank the authors of the following software for enabling us to quickly implement this piece of software.
 ## Optimization.Framework: ##
 The Optimization.Framework allows you to use C# as a modelling language for mathematical optimization. It furthermore allows you to use solvers as services.
 Copyright © Lars Beckmann
