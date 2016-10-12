@@ -88,12 +88,48 @@ namespace ThinGrid
         /// <param name="e">The routed event.</param>
         private void ButtonAbout_Click(object sender, RoutedEventArgs e)
         {
-            if (Resources.Contains("WindowAbout"))
-            {
-                Window about = Resources["WindowAbout"] as Window;
-                about.Owner = this;
-                about.ShowDialog();
-            }
+            // Init
+            Window about = new Window() { ResizeMode = ResizeMode.NoResize, SizeToContent = SizeToContent.WidthAndHeight, Topmost = true, ShowInTaskbar = false, Owner = this };
+            Canvas container = new Canvas() { Width = 370, Height = 200 };
+            about.Content = container;
+            // Add meg
+            Image meg = new Image() { Width = 75, Height = 75, Source = new BitmapImage(new Uri("pack://application:,,,/data/megbot.png")) { CacheOption = BitmapCacheOption.OnLoad } };
+            container.Children.Add(meg);
+            Canvas.SetTop(meg, 25); Canvas.SetRight(meg, 2);
+            // Add info section
+            TextBlock info = new TextBlock() { Margin = new Thickness(2), TextWrapping = TextWrapping.Wrap, Width = 290 };
+            container.Children.Add(info);
+            Canvas.SetTop(info, 2); Canvas.SetLeft(info, 2);
+            info.Inlines.Add(new Bold(new Run("About ThinGrid:")));
+            info.Inlines.Add(new LineBreak());
+            info.Inlines.Add(new Run("The ThinGrid software is intended to be used as a very basic tool to support the first steps into mathematical modeling. We hope that it is useful in providing a first impression of Operational Research techniques."));
+            info.Inlines.Add(new LineBreak());
+            info.Inlines.Add(new Run("Copyright (C) 2016 Marius Merschformann, Lin Xie"));
+            info.Inlines.Add(new LineBreak());
+            info.Inlines.Add(new Run("Please submit all experienced bugs to:"));
+            info.Inlines.Add(new LineBreak());
+            Hyperlink linkTG = new Hyperlink(new Run("https://github.com/merschformann/ThinGrid")) { NavigateUri = new Uri("https://github.com/merschformann/ThinGrid") };
+            linkTG.RequestNavigate += Hyperlink_RequestNavigate;
+            info.Inlines.Add(linkTG);
+            // Add thanks section
+            TextBlock thank = new TextBlock() { Margin = new Thickness(2), TextWrapping = TextWrapping.Wrap, Width = 390 };
+            container.Children.Add(thank);
+            Canvas.SetTop(thank, 132); Canvas.SetLeft(thank, 2);
+            thank.Inlines.Add(new Italic(new Run("We would like to thank the authors of the following software:")));
+            thank.Inlines.Add(new LineBreak());
+            thank.Inlines.Add(new Run("GLPK ("));
+            Hyperlink linkGLPK = new Hyperlink(new Run("https://www.gnu.org/software/glpk/")) { NavigateUri = new Uri("https://www.gnu.org/software/glpk/") };
+            linkGLPK.RequestNavigate += Hyperlink_RequestNavigate;
+            thank.Inlines.Add(linkGLPK);
+            thank.Inlines.Add(new Run(")"));
+            thank.Inlines.Add(new LineBreak());
+            thank.Inlines.Add(new Run("Optimization.Framework ("));
+            Hyperlink linkOF = new Hyperlink(new Run("http://optimizationzen.com/")) { NavigateUri = new Uri("http://optimizationzen.com/") };
+            linkOF.RequestNavigate += Hyperlink_RequestNavigate;
+            thank.Inlines.Add(linkOF);
+            thank.Inlines.Add(new Run(")"));
+            // Show it
+            about.ShowDialog();
         }
 
         #endregion

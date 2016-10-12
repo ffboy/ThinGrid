@@ -4,31 +4,6 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:lmcl="clr-namespace:LinearModelControlLib;assembly=LinearModelControlLib"
         Title="ThinGrid" Height="600" Width="1000" Icon="icon.ico">
-    <Window.Resources>
-        <Window x:Key="WindowAbout" x:Name="WindowAbout" Title="About" ResizeMode="NoResize" SizeToContent="WidthAndHeight" Topmost="True" ShowInTaskbar="False">
-            <Canvas Width="370" Height="200">
-                <Image Canvas.Top="25" Canvas.Right="2" Source="/data/megbot.png" Width="75" Height="75"/>
-                <TextBlock Canvas.Top="2" Canvas.Left="2" Margin="2" TextWrapping="Wrap" Width="290">
-                    <Bold>About ThinGrid:</Bold>
-                    <LineBreak/>
-                    The ThinGrid software is intended to be used as a very basic tool to support the first steps into mathematical modeling. We hope that it is useful in providing a first impression of Operational Research techniques.
-                    <LineBreak/>
-                    Copyright (C) 2016 Marius Merschformann, Lin Xie
-                    <LineBreak/>
-                    Please submit all experienced bugs to:
-                    <LineBreak/>
-                    <Hyperlink NavigateUri="https://github.com/merschformann/ThinGrid" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/merschformann/ThinGrid</Hyperlink>
-                </TextBlock>
-                <TextBlock Canvas.Top="132" Canvas.Left="2" Margin="2" TextWrapping="Wrap" Width="390">
-                    <Italic>We would like to thank the authors of the following software:</Italic>
-                    <LineBreak/>
-                    GLPK (<Hyperlink NavigateUri="https://www.gnu.org/software/glpk/" RequestNavigate="Hyperlink_RequestNavigate">https://www.gnu.org/software/glpk/</Hyperlink>)
-                    <LineBreak/>
-                    Optimization.Framework (<Hyperlink NavigateUri="http://optimizationzen.com/" RequestNavigate="Hyperlink_RequestNavigate">http://optimizationzen.com/</Hyperlink>)
-                </TextBlock>
-            </Canvas>
-        </Window>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
