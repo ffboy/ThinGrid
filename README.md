@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Screenshot
 
-[Screenshot](Material/Screenshots/preview1.png)
+![Screenshot](Material/Screenshots/preview1.png)
 
 # Used software:
 We would like to thank the authors of the following software for enabling us to quickly implement this piece of software.
